@@ -1,7 +1,7 @@
 import React from 'react'
 import './Content.css'
 
-export default () => {
+const Content = () => {
   return (
     <div className="head head-img">
       <div className="head-block">
@@ -17,3 +17,5 @@ export default () => {
     </div>
   )
 }
+
+export default Content
