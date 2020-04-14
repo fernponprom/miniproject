@@ -3,11 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import firebaseconfig from './config/firebaseconfig'
+import "firebase/auth";
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
+
+
+if( firebase.apps.length === 0 ){
+  firebase.initializeApp(firebaseconfig)
+}
+
+export const firestore = firebase.firestore()
+export const auth = firebase.auth()
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <App />
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
 

@@ -1,12 +1,16 @@
 import React from 'react';
 import Login from './components/Login/Login'
-import logo from './logo.svg';
+import Navbar from './components/Navbar/Navbar'
 import './App.css';
+import { Routes, Route, useRoutes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element="" />
+      </Routes>
     </div>
   );
 }
