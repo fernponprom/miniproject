@@ -11,7 +11,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-
+import foodReducer from './reducers/foodReducer'
 
 if( firebase.apps.length === 0 ){
   firebase.initializeApp(firebaseconfig)
@@ -19,7 +19,7 @@ if( firebase.apps.length === 0 ){
 
 export const firestore = firebase.firestore()
 export const auth = firebase.auth()
-export const reducers = combineReducers()
+export const reducers = combineReducers({food: foodReducer})
 export const store = createStore(reducers, applyMiddleware(thunk))
 
 ReactDOM.render(
