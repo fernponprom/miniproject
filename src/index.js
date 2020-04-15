@@ -7,9 +7,10 @@ import firebaseconfig from './config/firebaseconfig'
 import "firebase/auth";
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-import {
-  BrowserRouter as Router,
-} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 
 
 if( firebase.apps.length === 0 ){
@@ -18,11 +19,15 @@ if( firebase.apps.length === 0 ){
 
 export const firestore = firebase.firestore()
 export const auth = firebase.auth()
+export const reducers = combineReducers()
+export const store = createStore(reducers, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
