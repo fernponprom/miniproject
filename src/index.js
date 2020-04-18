@@ -23,7 +23,7 @@ export const reducers = combineReducers({food: foodReducer})
 export const store = createStore(reducers, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider>
+  <Provider store = {store}>
     <Router>
       <App />
     </Router>
