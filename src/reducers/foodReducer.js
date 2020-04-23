@@ -6,6 +6,11 @@ const foodReducer = (state=[], action) => {
       case 'GET_FOOD_FAIL':
         console.log("FAIL")
         return action.foods
+      case 'ADD_FOOD_SUCCESS':
+        console.log("ADD SUCCESS")
+        return action.foods
+      case 'ADD_FOOD_FAIL':
+        return action.foods
       default:
         return state
     }

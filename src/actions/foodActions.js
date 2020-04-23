@@ -20,6 +20,18 @@ const foodActions = {
       console.log(err)
       dispatch({type: 'GET_FOOD_FAIL'})
     }
+  },
+  addFoodSuccess: foods => ({
+    type: 'ADD_FOOD_SUCCESS',
+    foods
+  }),
+  addFoodFail: () => ({ type: 'ADD_FOOD_FAIL'}),
+  addFood: () => async () => {
+    try{
+      firestore.collection('Foods').docs(id+'').set()
+    }catch(err){
+      console.log(err)
+    }
   }
 }
 
