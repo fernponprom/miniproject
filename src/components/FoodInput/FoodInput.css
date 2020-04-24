@@ -4,3 +4,8 @@
     padding: 10px 10px 10px 10px;
     text-align: center;
   }
+  
+.form-input {
+    width: 30%;
+    height: 30px;
+}

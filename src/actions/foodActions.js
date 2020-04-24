@@ -26,7 +26,7 @@ const foodActions = {
     foods
   }),
   addFoodFail: () => ({ type: 'ADD_FOOD_FAIL'}),
-  addFood: () => async () => {
+  addFood: () => async (id) => {
     try{
       firestore.collection('Foods').docs(id+'').set()
     }catch(err){

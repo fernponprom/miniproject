@@ -5,7 +5,6 @@ import Login  from './components/Login/Login'
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Signup from './components/Signup/Signup'
-import FoodList from './components/Food-list/FoodList'
 
 import './App.css'
 
@@ -21,7 +20,6 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <FoodList />
     </div>
   );
 }
