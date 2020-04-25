@@ -1,0 +1,38 @@
+.card {
+    background-color:white;
+    /*height:400px;*/
+    width:502px;
+    border: 1px solid #d0d1d5;
+    border-radius:3px;
+    margin: auto;
+    margin-bottom:10px;
+    padding: 12px; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, .30); /* Not original, just a test */
+    font-family: Helvetica;
+  }
+  
+  .content {
+    clear:both;
+    font-family: Helvetica, sans-serif;
+    font-size:14px;
+    line-height: 1.38;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .text-left {
+    text-align: left;
+  }
+  
+  .profile-img {
+    text-align: left;
+    margin-right: 20px;
+    border-radius: 10px;
+  }
+  
+  .container {
+    display: flex;
+    margin: 10px;
+  }

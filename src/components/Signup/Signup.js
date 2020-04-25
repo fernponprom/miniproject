@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import {auth} from '../../index'
+import {firestore} from '../../index'
 import firebase from 'firebase/app'
 import {useNavigate} from 'react-router-dom'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('')
   const [routeRedirect, setRedirect] = useState(false)
   const navigate = useNavigate()
   // const [displayName, setDisplayName] = useState('')
@@ -29,7 +30,15 @@ const Signup = () => {
 
   const signup = async (e) => {
     e.preventDefault()
-    let user = await firebase.auth().createUserWithEmailAndPassword(email, password).catch( err => {
+    let user = await firebase.auth().createUserWithEmailAndPassword(email, password).then(cred => {
+      return firestore.collection('Users').doc(cred.user.uid).set({
+        bio: username,
+        age: 0,
+        weight: 0,
+        height: 0,
+        gender: ''
+      })
+    }).catch( err => {
       console.log(err)
     })
     console.log(user)
@@ -42,8 +51,9 @@ const Signup = () => {
         <div className="login">
           <h1>Sign up</h1>
           <form onSubmit={signup}>
-            <input type="text" name="userEmail" onChange = {(e) => setEmail(e.target.value)} placeholder="Username" required="required" />
-            <input type="password" name="userPassword" onChange = {(e) => setPassword(e.target.value)} placeholder="Password" required="required" />
+            <input type="text" name="username" onChange= { (e) => setUsername(e.target.value)} placeholder="Enter your name ..." required />
+            <input type="text" name="userEmail" onChange = {(e) => setEmail(e.target.value)} placeholder="Username..." required />
+            <input type="password" name="userPassword" onChange = {(e) => setPassword(e.target.value)} placeholder="Password..." required />
             <button type="submit" className="btn btn-primary btn-block btn-large">Sign up</button>
           </form>
           <br />
