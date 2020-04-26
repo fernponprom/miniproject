@@ -41,7 +41,6 @@ export default () => {
       return (
         <div className="nav-links">
           <Link to="/home">Home</Link>
-          <Link to="/About">About</Link>
           <button onClick={logout}>Logout</button>
         </div>
       )
@@ -49,7 +48,6 @@ export default () => {
       return (
         <div className="nav-links">
           <Link to="/">Home</Link>
-          <Link to="/About">About</Link>
           <Link to="/Login">Login</Link>
         </div>
       )
