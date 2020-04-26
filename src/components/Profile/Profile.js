@@ -4,7 +4,7 @@ import './Profile.css'
 const Profile = (props) => {
 
   const profile = props.profile
-  const { name, age, weight, height, gender } = profile
+  const { bio, age, weight, height, gender } = profile
 
   return (
     <div className="card">
@@ -13,7 +13,7 @@ const Profile = (props) => {
           <img src="https://api.adorable.io/avatars/160/abott@adorable.png" alt="Avatar"/>
         </div>
         <div className="text-left content">
-          <p><b>Name: </b>{name} </p>
+          <p><b>Name: </b>{bio} </p>
           <p><b>Gender: </b>{gender}</p>
           <p><b>Age: </b>{age}</p>
           <p><b>Height: </b>{height} cm.</p>

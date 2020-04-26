@@ -15,6 +15,23 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, .30); /* Not original, just a test */
     font-family: Helvetica;
   }
+
+  .right{
+      right: 0;
+  }
+
+  .edit-button {
+    margin-right: 10px;
+  }
+
+  .flex {
+    display: block;
+    position: relative; 
+  }
+
+  .flex > div {
+    position: absolute;
+  }
   
   .card-header {
     margin-bottom: 12px;

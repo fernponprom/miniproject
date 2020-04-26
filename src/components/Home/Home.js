@@ -13,7 +13,6 @@ const Home = () => {
   const [calories, setCalories] = useState('')
   const [uid, setUid] = useState('')
   const [list, setList] = useState([''])
-  const [enegry, setEnegry] = useState([''])
   const [result, setResult] = useState('')
   
   useEffect(() => {
@@ -35,7 +34,7 @@ const Home = () => {
     firestore.collection('Users').doc(uid).get().then((doc) => {
       const { bio, age, height, weight, gender } = doc.data()
       let myUser = {
-        name: bio,
+        bio: bio,
         age: age,
         height: height,
         weight: weight,
@@ -66,8 +65,15 @@ const Home = () => {
       }else{
         return (
           <li key={item.id}> 
-          <span> {item.item} : {item.calories} kCal  </span>
-          <button onClick= { () => deleteItem(item.id)}>ลบ</button>
+          <div className="flex">
+            <div>
+                <span> {item.item} : {item.calories} kCal  </span>
+            </div>
+            <div className="right">
+                <button className="edit-button" onClick= { () => editItem(item.id)}>แก้ไข</button>
+                <button onClick= { () => deleteItem(item.id)}>ลบ</button>
+            </div> 
+          </div>
           </li>
         )
       }
@@ -87,7 +93,12 @@ const Home = () => {
     console.log('delete uid: ' + uid)
     console.log('id: ' + id)
     console.log('path: ' + path)
-    firestore.collection('/Users/MV1wEaEqbIYp3Wqwp33GnenDAwx1/items').doc(id+'').delete()
+    firestore.collection(path).doc(id+'').delete()
+  }
+
+  const editItem = (id) => {
+    let path = '/Users/' + uid + '/items'
+    firestore.collection(path).doc(id+'').set({ id, item, calories })
   }
 
   const resetItem = (id) => {
