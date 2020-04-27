@@ -20,10 +20,11 @@ export default () => {
         <div className="food-block">
           <div className="food-img">
             <img src="https://cdn.pixabay.com/photo/2017/08/02/00/51/food-2569257_1280.jpg" alt="food-1" />
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="food-1" />
+            <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="food-1" />
+            <img src="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" />
             <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="food-1" />
-            <img src="https://cdn.pixabay.com/photo/2017/08/02/00/51/food-2569257_1280.jpg" alt="food-1" />
-            <img src="https://cdn.pixabay.com/photo/2017/08/02/00/51/food-2569257_1280.jpg" alt="food-1" />
-            <img src="https://cdn.pixabay.com/photo/2017/08/02/00/51/food-2569257_1280.jpg" alt="food-1" />
+            
           </div>
         </div>
       </div>
