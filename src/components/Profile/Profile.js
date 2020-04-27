@@ -10,7 +10,7 @@ const Profile = (props) => {
     <div className="card">
       <div className="container">
         <div className="profile-img">
-          <img src="https://api.adorable.io/avatars/160/abott@adorable.png" alt="Avatar"/>
+          <img src="https://api.adorable.io/avatars/150/check1ß.png" alt="Avatar"/>
         </div>
         <div className="text-left content">
           <p><b>Name: </b>{bio} </p>

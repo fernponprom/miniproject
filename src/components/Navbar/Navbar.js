@@ -41,7 +41,7 @@ export default () => {
       return (
         <div className="nav-links">
           <Link to="/home">Home</Link>
-          <button onClick={logout}>Logout</button>
+          <a onClick={logout}>Logout</a>
         </div>
       )
     }else{

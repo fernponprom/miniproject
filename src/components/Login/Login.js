@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Login.css'
 import firebase from 'firebase/app'
 import { useNavigate } from 'react-router-dom'
+import { provider, firestore } from '../../index'
 
 function Login(){
   
@@ -10,7 +11,7 @@ function Login(){
   const [loginState, setLoginState] = useState(0)
   const [user, setUser] = useState([])
   const [error, setError] = useState('')
-
+  
   let navigate = useNavigate()
 
   const login = async (e) => {
@@ -24,6 +25,39 @@ function Login(){
     }
   }
 
+  const loginWithFacebook = async () => {
+    await firebase.auth().signInWithPopup(provider).then(async (result) => {
+      let token = result.credential.accessToken
+      let user = result.user
+      console.log(result)
+      console.log("facebook user: " + user.displayName)
+      console.log("token: " + token)
+       await firestore.collection('Users').doc(user.uid).get().then( async (res) => {
+        let data = res.data()
+        console.log("check data: " + data)
+        if(!data){
+          console.log('register !!')
+          await firestore.collection('Users').doc(user.uid).set({
+            bio: user.displayName,
+            age: 0,
+            weight: 0,
+            height: 0,
+            gender: ''
+          })
+          navigate('/home')
+        }else{
+          console.log('have user NOW !!')
+          navigate('/home')
+        }
+      })
+      setUser(user)
+      
+    }).catch(err => {
+      console.log(err.code)
+      console.log(err.message)
+    })
+  }
+
   return (
     <div className="login-img">
       <div className="login-background">
@@ -35,6 +69,10 @@ function Login(){
             <button type="submit" className="btn btn-primary btn-block btn-large">Login</button>
           </form>
           <br />
+          or
+          <div>
+            <button className="loginBtn loginBtn--facebook" onClick={ (e) => loginWithFacebook() }>Login with facebook</button>
+          </div>
         </div>
       </div>
     </div>

@@ -21,6 +21,7 @@ export const firestore = firebase.firestore()
 export const auth = firebase.auth()
 export const reducers = combineReducers({food: foodReducer})
 export const store = createStore(reducers, applyMiddleware(thunk))
+export const provider = new firebase.auth.FacebookAuthProvider()
 
 ReactDOM.render(
   <Provider store = {store}>

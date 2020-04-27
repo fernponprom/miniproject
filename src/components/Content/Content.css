@@ -74,15 +74,15 @@
 }
 
 .signup-button:hover {
-   background:black;
+  background:black;
   color:white; 
 }
 
 .signup-button > a {
   text-decoration: none !important;
-  color: inherit;
-  
+  color: inherit; 
 }
+
 @media only screen and (max-width: 600px) {
 
   .title {

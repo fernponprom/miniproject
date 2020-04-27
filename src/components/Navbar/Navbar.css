@@ -10,8 +10,9 @@
   .nav {
     height: 30px;
     width: 100%;
-    background-color: black;
+    background-color: transparent;
     position: relative;
+    display: block;
   }
   
   .nav > .nav-header {
@@ -34,13 +35,15 @@
     display: inline;
     float: left;
     font-size: 18px;
+    font-weight: bold;
+    color: black;
   }
   
   .nav > .date {
     display: inline-block;
     float: right;
     font-size: 16px;
-    color: white;
+    color: black;
     padding: 5px 10px 10px 10px;
   }
   
@@ -49,7 +52,7 @@
     font-size: 16px;
     padding: 5px 10px 10px 10px;
     text-decoration: none;
-    color: #efefef;
+    color: black;
   }
   
   .nav > .nav-links > a:hover {
