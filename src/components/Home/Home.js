@@ -147,9 +147,9 @@ const Home = () => {
     })
     console.log("my energy: " + myEnergy + ' basic energy: ' + simulation)
     if(simulation < myEnergy){
-      result = 'bad'
+      result = 'ไม่ดี คุณควรออกกำลังกาย'
     }else{
-      result = 'good'
+      result = 'คุณทานอาหารในปริมาณที่เหมาะสมห'
     }
 
     return result

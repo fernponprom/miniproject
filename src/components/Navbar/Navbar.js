@@ -41,6 +41,7 @@ export default () => {
       return (
         <div className="nav-links">
           <Link to="/home">Home</Link>
+          <span className="white">Hello, {userState.displayName || userState.email}</span>
           <a onClick={logout}>Logout</a>
         </div>
       )
