@@ -10,6 +10,7 @@ const Signup = () => {
   const [age, setAge] = useState('')
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
+  const [gender, setGender] = useState('')
   const [routeRedirect, setRedirect] = useState(false)
   const navigate = useNavigate()
   // const [displayName, setDisplayName] = useState('')
@@ -36,10 +37,10 @@ const Signup = () => {
     let user = await firebase.auth().createUserWithEmailAndPassword(email, password).then(cred => {
       return firestore.collection('Users').doc(cred.user.uid).set({
         bio: username,
-        age: 0,
-        weight: 0,
-        height: 0,
-        gender: ''
+        age: age,
+        weight: weight,
+        height: height,
+        gender: gender
       })
     }).catch( err => {
       console.log(err)
@@ -55,10 +56,11 @@ const Signup = () => {
           <h1>Sign up</h1>
           <form onSubmit={signup}>
             <input type="text" name="username" onChange= { (e) => setUsername(e.target.value)} placeholder="Enter your name ..." required />
+            <input type="text" name="gender" onChange= { (e) => setGender(e.target.value)} placeholder="Enter your gender ..." required />
             <input type="text" name="age" onChange= { (e) => setAge(e.target.value)} placeholder="Enter your age ..." required />
             <input type="text" name="weight" onChange= { (e) => setWeight(e.target.value)} placeholder="Enter your weight ..." required />
             <input type="text" name="height" onChange= { (e) => setHeight(e.target.value)} placeholder="Enter your height ..." required />
-            <input type="text" name="userEmail" onChange = {(e) => setEmail(e.target.value)} placeholder="Username..." required />
+            <input type="text" name="userEmail" onChange = {(e) => setEmail(e.target.value)} placeholder="E-mail..." required />
             <input type="password" name="userPassword" onChange = {(e) => setPassword(e.target.value)} placeholder="Password..." required />
             <button type="submit" className="btn btn-primary btn-block btn-large">Sign up</button>
           </form>

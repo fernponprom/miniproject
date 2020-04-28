@@ -41,6 +41,7 @@ export default () => {
       return (
         <div className="nav-links">
           <Link to="/home">Home</Link>
+          <Link to="/health">Health</Link>
           <span className="white">Hello, {userState.displayName || userState.email}</span>
           <a onClick={logout}>Logout</a>
         </div>
@@ -49,6 +50,7 @@ export default () => {
       return (
         <div className="nav-links">
           <Link to="/">Home</Link>
+          <Link to="/health">Health</Link>
           <Link to="/Login">Login</Link>
         </div>
       )

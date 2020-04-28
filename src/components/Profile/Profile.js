@@ -8,11 +8,11 @@ const Profile = (props) => {
 
   return (
     <div className="card">
-      <div className="container">
+      <div className="container-profile">
         <div className="profile-img">
           <img src="https://api.adorable.io/avatars/150/check1ß.png" alt="Avatar"/>
         </div>
-        <div className="text-left content">
+        <div className="text-left content-profile">
           <p><b>ชื่อ: </b>{bio} </p>
           <p><b>เพศ: </b>{gender}</p>
           <p><b>อายุ: </b>{age}</p>

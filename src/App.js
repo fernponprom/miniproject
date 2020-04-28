@@ -5,6 +5,7 @@ import Login  from './components/Login/Login'
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Signup from './components/Signup/Signup'
+import Health from './components/Health/Health'
 
 import './App.css'
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<Content /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/health" element={<Health /> } />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>

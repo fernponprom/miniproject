@@ -76,7 +76,7 @@ const Home = () => {
         )
       }else{
         return (
-          <li key={item.id}> 
+          <li style={{marginBottom:"5px"}} key={item.id}> 
           <div className="flex">
             <div>
                 <span> {item.item} : {item.calories} kCal  </span>
@@ -149,7 +149,7 @@ const Home = () => {
     if(simulation < myEnergy){
       result = 'ไม่ดี คุณควรออกกำลังกาย'
     }else{
-      result = 'คุณทานอาหารในปริมาณที่เหมาะสมห'
+      result = 'คุณทานอาหารในปริมาณที่เหมาะสม'
     }
 
     return result
@@ -168,7 +168,7 @@ const Home = () => {
         <FoodList />
         </ul>
         <FoodInput /> */}
-                <div className="card">
+        <div className="card">
             <div>
             แก้ไขข้อมูล... <span className="config-button" onClick={handleShow}><i className="fa fa-gear"></i></span>
             </div>
