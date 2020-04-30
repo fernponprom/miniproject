@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {firestore} from '../../index'
+import React, {useState, useEffect} from 'react'
+import {firestore, auth} from '../../index'
 import firebase from 'firebase/app'
 import {useNavigate} from 'react-router-dom'
 
@@ -31,6 +31,16 @@ const Signup = () => {
   //     setDisplayName(value)
   //   }
   // }
+  useEffect(() => {
+    getUserState()
+  })
+  const getUserState = async () => {  
+    auth.onAuthStateChanged((user) => {
+      if(user){
+        navigate('/home')
+      }
+    })
+  }
 
   const signup = async (e) => {
     e.preventDefault()
@@ -46,7 +56,8 @@ const Signup = () => {
       console.log(err)
     })
     console.log(user)
-    return navigate('/login')
+    window.location.reload()
+    return navigate('/home')
   }
 
   return (
