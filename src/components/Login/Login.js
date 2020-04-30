@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Login.css'
 import firebase from 'firebase/app'
+import { auth } from '../../index'
 import { useNavigate } from 'react-router-dom'
 import { provider, firestore } from '../../index'
 
@@ -11,8 +12,21 @@ function Login(){
   const [loginState, setLoginState] = useState(0)
   const [user, setUser] = useState([])
   const [error, setError] = useState('')
-  
+
+  console.log('user: ' + user)
+  useEffect( () => {
+    getUserState()
+  }, [])
+
   let navigate = useNavigate()
+
+  const getUserState = async () => {  
+      auth.onAuthStateChanged((user) => {
+        if(user){
+          navigate('/home')
+        }
+      })
+  }
 
   const login = async (e) => {
     e.preventDefault()
@@ -21,7 +35,7 @@ function Login(){
     }) 
     if(user){
       setUser(user)
-      navigate('/home')
+      window.location.reload()
     }
   }
 
