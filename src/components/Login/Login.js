@@ -65,6 +65,7 @@ function Login(){
         }
       })
       setUser(user)
+      window.location.reload()
       
     }).catch(err => {
       console.log(err.code)
